@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+    border: none;
+}
+
+:root {
+    --background-color: #f7f5f2;
+    --text-color: #434343;
+    --primary-color: #D93250;
+    --secondary-color: #A62648;
+    --border-color: #ddd;
+    --cards-color: white;
+    --padding-section: 120px;
+}
+
+
+body {
+    height: 100%;
+    background-color: var(--background-color);
+
+}
+
+
+/* Carousel styles */
+#carouselExampleIndicators {
+   
+    background-color: var(--background-color);
+}
+
+.slider-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 10px 100px 10px;
+    /* background-color: white; */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 20px;
+}
+
+.slider-item img {
+    width: 25%;
+    /* Fixed width */
+    height: 450px;
+    /*Fixed height*/
+    border-radius: 10px;
+    object-fit: cover;
+    /* Ensures the image covers the entire area without distortion */
+}
+
+.slide-item-content {
+    font-size: 19px;
+    padding: 150px;
+    max-width: 50%;
+    margin-right: 20px;
+}
+
+.slide-item-content button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+}
+
+.chevron {
+    font-size: 24px;
+    color: black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-size: 100%, 100%; */
+    /* border-radius: 50%; */
+    height: 30px;
+    width: 30px;
+}
+
+
+/* rasha */
+/* start of the (best_seller_section)  */
+
+.best_seller_section {
+    background-color: var(--background-color);
+    /* margin-top: 120px; */
+}
+
+.best_seller_section h1,
+h6 {
+    margin-left: 150px;
+    margin-bottom: 30px;
+}
+
+.best_seller_section h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.best_seller_section h6 {
+    font-size: 25px;
+}
+
+.best_seller_cards {
+    margin-bottom: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+    margin-bottom: 70px;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.best_seller_cards div
+{
+    width: 350px;
+    border-radius: 10px;
+}
+.best_seller_cards img {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    border-radius: 10px 10px;
+    width: 100%;
+
+}
+
+.card-content {
+    padding: 15px;
+    position: relative;
+}
+
+.card p {
+    margin: 10px;
+    color: #333;
+}
+
+.add-to-cart {
+    display: none;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 0.5px var(--primary-color);
+    cursor: pointer;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    width: 75%;
+}
+
+.card:hover .add-to-cart {
+    display: block;
+}
+
+.card:hover .product-name,
+.card:hover .price {
+    opacity: 0;
+}
+
+/* End of the (best_seller_section)  */
+
+
+
+/* rasha */
+/* start of the (Most_favorite_section)  */
+
+.favorite_section {
+    background-color: var(--cards-color);
+
+}
+
+.favorite_section h1 {
+    margin-top: 70px;
+    margin-left: 150px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.favorite_section h6 {
+    font-size: 25px;
+    margin-left: 150px;
+    margin-bottom: 30px;
+}
+
+.favorite_section p {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.favorite_section_cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+    padding-left: 120px;
+    padding-right: 120px;
+    margin-bottom: 70px;
+
+}
+.favorite_section_cards button
+{
+    background-color: transparent;
+}
+.fav_card {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+
+.fav_card:hover {
+    transform: scale(1.05);
+}
+
+.fav_card img {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+
+.fav_card p {
+    margin: 10px;
+    color: #333;
+}
+
+
+
+.fav_card:hover .add-to-cart {
+    display: block;
+}
+
+.fav_card:hover .product-name,
+.fav_card:hover .price {
+    opacity: 0;
+}
+
+.add-to-cart:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* End of the (Most_favorite_section)  */
+
+
+/* rasha
+start of the (aboutUs_section) */
+.about_us_section_root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.about_us_section {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    display: flex;
+    gap: 110px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    width:80%;
+}
+
+.about_us_paragraph {
+    flex: 1;
+    padding: 20px;
+}
+
+.about_us_paragraph h3 {
+    font-size: 45px;
+    color: var(--secondary-color);
+}
+
+.about_us_paragraph hr {
+    border: 0;
+    height: 1px;
+    background: #2c5d63;
+    margin: 20px 0;
+}
+
+.about_us_paragraph p {
+    font-size: 1.15em;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.about_us_img {
+    flex: 1;
+    /* padding: 20px; */
+    display: flex;
+    justify-content: center;
+}
+
+.about_us_img img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* rasha */
+/* start of the (feedback_section) */
+
+
+swiper-container {
+    width: 100%;
+  }
+  
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 210px;
+    /* background-color: var(--background-color); */
+  }
+
+  
+  .title_feedback {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px; 
+    color: var(--secondary-color);
+    font-size: 50px;
+    /* background-color: var(--background-color); */
+  }
+  
+  .feedback_dives {
+    background-color: var(--background-color);
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .feedback_dives {
+      width: 90%;
+    }
+  
+    .title_feedback {
+      font-size: 16px;
+    }
+  
+    swiper-slide {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .feedback_dives {
+      width: 95%;
+    }
+  
+    .title_feedback {
+      font-size: 14px;
+    }
+  
+    swiper-slide {
+      font-size: 14px;
+    }
+  }
+  
+  .imgSlide{
+    width: fit-content;
+    height: fit-content;
+  }
+
+
+
+/* End of the (feedback_section) */
+/* .carousel-indicators li {
+    background-color: gray;
+} */
+
+/* .carousel-indicators .active {
+    background-color: var(--primary-color);
+} */

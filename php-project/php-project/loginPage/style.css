@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(123, 112, 112, 0.1);
+    width: 100%;
+    max-width: 400px; 
+    text-align: center;
+}
+
+
+.form-title {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem; 
+}
+
+
+.account-info {
+    margin-bottom: 1rem;
+    font-size: 0.875rem; 
+    color: #666;
+}
+
+
+.input-group {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4d0a0a;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 0.875rem; 
+    display: none; 
+}
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D93250; 
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem; 
+    margin-top: 1rem; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn:hover {
+    background-color: #A62648; 
+}
+
+
+.recover, .links {
+    margin-top: 1rem;
+}
+
+.recover a, .links a {
+    color: #686c6f; 
+    text-decoration: none;
+}
+
+.recover a:hover, .links a:hover {
+    text-decoration: underline;
+}
+
+:root {
+    --background-color: #f7f5f2;
+    --text-color: #434343;
+    --primary-color: #D93250;
+    --secondary-color: #A62648;
+    --border-color: #ddd;
+}
+
+
+

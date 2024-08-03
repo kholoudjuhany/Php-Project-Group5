@@ -1,0 +1,139 @@
+.categories-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.categories-section-titel {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mainnn h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+.span-category {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.category-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.category-title {
+    padding: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover .category-box {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bcontainer {
+    display: flex;
+}
+
+.bsidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bfilter-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.bfilter-group {
+    margin-bottom: 20px;
+}
+
+.bfilter-group h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.bfilter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.bfilter-group input[type="checkbox"],
+.bfilter-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+.bcontent {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.btoggle-btn {
+    display: none;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btoggle-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .categories-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bcontainer {
+        flex-direction: column;
+    }
+
+    .bsidebar {
+        width: 100%;
+        display: none;
+    }
+
+    .btoggle-btn {
+        display: block;
+    }
+}
