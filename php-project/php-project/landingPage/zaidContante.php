@@ -15,7 +15,9 @@
                     Welcome to your pet's favorite store! From nutritious meals to playful accessories, we’ve got
                     everything your furry friend needs.
                     </p>
+                    <a href="../category/category.php">
                     <button class="btn btn-lg">get started</button>
+                    </a>
                 </div>
                 <img src="../images/pet.png" alt="First slide">
             </div>
@@ -27,7 +29,9 @@
                     Nourish your pet with love! Explore our selection of wholesome and delicious food tailored to
                     keep your pet healthy and happy.
                     </p>
+                    <a href="../category/category.php">
                     <button class="btn btn-lg">get started</button>
+                    </a>
                 </div>
                 <img src="../images/pngwing.com.png" alt="supplies image">
             </div>
@@ -38,7 +42,9 @@
                     <p>
                     From cozy beds to fun toys, find all the essentials to pamper your pet with the best. Quality products with various prices.
                     </p>
+                    <a href="../category/category.php">
                     <button class="btn btn-lg">get started</button>
+                    </a>
                 </div>
                 <img src="../images/tools2.png" alt="Third slide" class="card-img-top imgSlide">
             </div>

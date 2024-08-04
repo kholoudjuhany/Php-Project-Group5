@@ -212,6 +212,7 @@ $count = $stmt->fetch(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($product['pro_discount']); ?></td>
                             <td><?php echo htmlspecialchars($product['cat_name']); ?></td>
                             <td class="text-right">
+                              
                               <form action="CURD_Products/delete_product.php" method="post"
                                 style="display: inline-block;">
                                 <input type="hidden" name="productId"
@@ -221,6 +222,7 @@ $count = $stmt->fetch(PDO::FETCH_ASSOC);
                                   <i class="mdi mdi-delete-forever"></i>
                                 </button>
                               </form>
+
                               <form action="CURD_Products/update_product.php" method="post"
                                 style="display: inline-block;">
                                 <input type="hidden" name="productId"
@@ -232,6 +234,7 @@ $count = $stmt->fetch(PDO::FETCH_ASSOC);
                                   <i class="mdi mdi-table-edit"></i>
                                 </button>
                               </form>
+
                               <form action="" method="post" style="display: inline-block;">
                                 <input type="hidden" name="productId"
                                   value="<?php echo htmlspecialchars($product['product_id']); ?>">

@@ -59,11 +59,11 @@
         </li>
         <!-- fix404 add link and name -->
         <li><a href="../landingPage/landingPage.php#faq_n">FAQ</a></li> 
-        <li><a href="../landingPage/landingPage.php#aboutus_n">About us</a></li> 
-        <li><a href="../landingPage/landingPage.php#">Contact</a></li>
+        <li><a href="../landingPage/landingPage.php#aboutus_n">About</a></li> 
+        <li><a href="../landingPage/landingPage.php#footerf">Contact</a></li>
         <li><a href="../loginPage/LoginForm.php">Login/Signup</a></li>
        <li> 
-        <a href="#" class="toggle-cart-btn"  >
+        <a href="../cart/cart2.php" class="toggle-cart-btn"  >
        
         
           <i class="fa-solid fa-cart-shopping fa-lg "></i>

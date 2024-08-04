@@ -1,4 +1,5 @@
 .categories-section {
+    margin-top: 60px;
     text-align: left;
     padding-left:120px ;
     padding-right:120px ;
@@ -67,7 +68,7 @@
 }
 
 .category-carddes img {
-    width: 30px; 
+    width: 50px; 
     height: auto; 
     object-fit: contain; 
     position: relative; 
@@ -286,4 +287,4 @@ h6 {
     background-color: #A62648;
     color: white;
 }
-/*End  products */
+/*End  products */ 

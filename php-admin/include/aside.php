@@ -37,6 +37,18 @@
     </li>
     <!-- products page end -->
 
+
+    <!-- order page start -->
+    <li class="nav-item">
+      <a class="nav-link" href="order.php">
+        <span class="menu-title">Orders</span>
+        <i class="mdi mdi-apps menu-icon"></i>
+      </a>
+    </li>
+    <!-- order page end -->
+
+
+
     <!-- user page start -->
     <li class="nav-item">
       <a class="nav-link" href="user.php">

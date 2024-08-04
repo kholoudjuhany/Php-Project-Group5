@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/navbarStyle.css">
-    <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/zaid.css">
     <link rel="stylesheet" href="../style/cart.css">
     <link rel="stylesheet" href="../style/category.css">
+    <link rel="stylesheet" href="../style/index.css">
 
 
     <!-- bootstrap -->

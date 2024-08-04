@@ -1,4 +1,5 @@
 <?php
+
 include("../connection/connect.php");
 
 // Function to get product details from database
@@ -89,9 +90,8 @@ $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
     <style>
-         :root {
+                :root {
             --background-color: #f7f5f2;
             --text-color: #434343;
             --primary-color: #D93250;
@@ -314,7 +314,7 @@ $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
                                                     <div class="m-t-sm">
                                                         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" style="display:inline;">
                                                             <input type="hidden" name="removeProductId" value="<?php echo htmlspecialchars($product['product_id']); ?>">
-                                                            <button type="submit" class="text-muted"  style="border:none; background:none; cursor:pointer;">
+                                                            <button type="submit" class="text-muted" style="border:none; background:none; cursor:pointer;">
                                                                 <i class="fa fa-trash"></i> Remove item
                                                             </button>
                                                         </form>
@@ -350,8 +350,16 @@ $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
                     <div class="ibox-content">
                         <div class="m-t-md">
                             <div class="m-t-md-m">
-                                <button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Checkout</button>
+                                <form method="post" action="../checkout/checkoutPage.php" style="display: inline-block;">
+                                    <input type="hidden" name="cart" value="<?php echo json_encode($cart); ?>">
+                                    <input type="hidden" name="totalPrice" id="totalPrice">
+                                    <a href="../checkout/checkoutPage.php">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Checkout</button>
+                                    </a>
+                                </form>
+                                <a href="../category/category.php">
                                 <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                                </a>
                             </div>
                             <div class="m-t-md-mt">
                                 <h3>Total price: <span id="total-price">$330.00</span></h3>
@@ -382,13 +390,13 @@ $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : [];
         input.addEventListener('input', updateTotalPrice);
     });
 
+    // Set the total price value to the hidden input field before submitting the form
+    document.querySelector('form').addEventListener('submit', function() {
+        document.getElementById('totalPrice').value = document.getElementById('total-price').innerText;
+    });
+
     // Initial calculation
     updateTotalPrice();
 </script>
 
-</html>
-
-<?php
-// session_start();
-?>
 </html>

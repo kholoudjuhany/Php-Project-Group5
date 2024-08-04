@@ -33,26 +33,28 @@
 <body>
 
 
+
 <nav class="navbar1">
   <div class="container1">
 
-    <div class="navbar1-header">
+    
+
+    <div class="navbar1-menu" id="open-navbar1">
+  
       <button class="navbar1-toggler" data-toggle="open-navbar1">
         <span></span>
         <span></span>
         <span></span>
       </button>
+      
       <a href="../landingPage/landingPage.php">
-        <h4>Awesome<span>logo</span></h4>
+        <img src="../images/logo.png" alt="logo" width="50%">
       </a>
-    </div>
-
-    <div class="navbar1-menu" id="open-navbar1">
+    
       <ul class="navbar1-nav">
-      <li class="active"><a href="../landingPage/landingPage.php">Home</a></li>
-
+        <li ><a href="../landingPage/landingPage.php">Home</a></li>
         <li class="navbar1-dropdown">
-        <a href="../category/category.php" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+          <a href="../category/category.php" class="dropdown-toggler" data-dropdown="my-dropdown-id">
             Categories 
           </a>
           <!-- dropdown list start -->
@@ -87,20 +89,20 @@
           <!-- dropdown list end -->
 
         </li>
-        
+        <!-- fix404 add link and name -->
         <li><a href="../landingPage/landingPage.php#faq_n">FAQ</a></li> 
-        <li><a href="../landingPage/landingPage.php#aboutus_n">About us</a></li> 
-        <li><a href="../landingPage/landingPage.php#">Contact</a></li>
+        <li><a href="../landingPage/landingPage.php#aboutus_n">About</a></li> 
+        <li><a href="../landingPage/landingPage.php#footerf">Contact</a></li>
         <li><a href="../loginPage/LoginForm.php">Login/Signup</a></li>
-        <li> 
-        <a href="#" class="toggle-cart-btn"  >
+       <li> 
+        <a href="../cart/cart2.php" class="toggle-cart-btn"  >
        
         
           <i class="fa-solid fa-cart-shopping fa-lg "></i>
      
       </a>
       </li>
-
+        <!-- fix404 add link and name -->
       </ul>
     </div>
   </div>

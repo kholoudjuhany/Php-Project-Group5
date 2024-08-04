@@ -37,7 +37,7 @@ $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php include("product_nav.php") ?>
-<?php include("../cart/cart.php");?>
+
 
 
 <body>
@@ -97,9 +97,11 @@ $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         <div class="aproduct-btn-group">
                             <div class="abutton abuy-now" >
-                                <button class="toggle-cart-btn">
-                                <i class='bx bxs-cart'></i> Add to Cart
-                                </button>
+                            <form action="../cart/cart2.php" method="post" style="display: inline-block;">
+                        <input type="hidden" name="productId"
+                            value="<?php echo htmlspecialchars($product[0]['product_id']); ?>">
+                        <p class="product_add-to-cart"><b><button type="submit">Add to cart</button></b></p>
+                    </form>
                             </div>
                             <div class="abutton aheart"><i class='bx bxs-heart'></i> Add to Wishlist</div>
                         </div>

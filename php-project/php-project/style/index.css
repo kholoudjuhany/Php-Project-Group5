@@ -25,6 +25,11 @@ body {
     background-color: var(--background-color);
 
 }
+button
+{
+    background-color: transparent !important; 
+    border: none !important;
+}
 
 
 /* Carousel styles */
@@ -63,7 +68,7 @@ body {
 
 .slide-item-content button {
     background-color: var(--primary-color);
-    color: #ffffff;
+    /* color: #ffffff; */
     border: none;
 }
 
@@ -86,23 +91,26 @@ body {
 /* start of the (best_seller_section)  */
 
 .best_seller_section {
+    padding: 20px;
     background-color: var(--background-color);
     /* margin-top: 120px; */
 }
 
-.best_seller_section h1,
+/* .best_seller_section h1,
 h6 {
     margin-left: 150px;
     margin-bottom: 30px;
-}
+} */
 
 .best_seller_section h1 {
     text-transform: uppercase;
+    margin-left: 120px;
     font-size: 40px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .best_seller_section h6 {
+    margin-left: 120px;
     font-size: 25px;
 }
 
@@ -131,6 +139,11 @@ h6 {
 {
     width: 350px;
     border-radius: 10px;
+}
+.best_seller_cards button
+{
+   background-color: transparent;
+   border: none;
 }
 .best_seller_cards img {
     width: 100%;
@@ -206,7 +219,7 @@ h6 {
 
 .favorite_section {
     background-color: var(--cards-color);
-
+    margin-top: 100px;
 }
 
 .favorite_section h1 {
