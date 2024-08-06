@@ -1,8 +1,6 @@
 <?php
 $stmt_cat = $conn->prepare("SELECT * FROM categories limit 12");
-
 $stmt_cat->execute();
-
 $categori = $stmt_cat->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -11,21 +9,19 @@ $categori = $stmt_cat->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-<!-- fix the style -->
+<section class="flex-section">
 <div class="categories-section">
     <div class="categories-section-titel">
-        
-
+        <p>Categories/Products</p>
     </div>
     <div class="categories-products-section">
         <?php foreach ($categori as $cat): ?>
             <form action="category.php" method="post">
                 <input type="hidden" name="cat_ID" value="<?php echo htmlspecialchars($cat['cat_id']); ?>" />
-                <button  type="submit">
+                <button type="submit">
                     <div class="category-carddes">
-                    <img src="../../../php-admin/uploads/<?php echo htmlspecialchars($cat['cat_image']); ?>" alt="" />
+                        <img src="../../../php-admin/uploads/<?php echo htmlspecialchars($cat['cat_image']); ?>" alt="" />
                         <div class="rashrash"><?php echo htmlspecialchars($cat['cat_name']); ?></div>
-                       
                     </div>
                 </button>
             </form>
@@ -33,8 +29,8 @@ $categori = $stmt_cat->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach ?>
     </div>
 </div>
-<!-- fix the style -->
 
+<!-- fliter -->
 <div class="bcontainer">
     <!-- Sidebar -->
     <div class="bsidebar" id="bsidebar">
@@ -43,18 +39,12 @@ $categori = $stmt_cat->fetchAll(PDO::FETCH_ASSOC);
             <!-- Category Filter -->
             <div class="bfilter-group">
                 <h4>Category</h4>
-                <label>
-                    <input type="checkbox" name="category" value="flowers">
-                    Flowers
-                </label>
-                <label>
-                    <input type="checkbox" name="category" value="chocolates">
-                    Chocolates
-                </label>
-                <label>
-                    <input type="checkbox" name="category" value="gifts">
-                    Gifts
-                </label>
+                <?php foreach ($categori as $cat): ?>
+                    <label>
+                        <input type="checkbox" name="category" value="<?php echo htmlspecialchars($cat['cat_id']); ?>">
+                        <?php echo htmlspecialchars($cat['cat_name']); ?>
+                    </label>
+                <?php endforeach ?>
             </div>
             <!-- Price Filter -->
             <div class="bfilter-group">
@@ -95,21 +85,18 @@ $categori = $stmt_cat->fetchAll(PDO::FETCH_ASSOC);
                     <input type="checkbox" name="rating" value="4">
                     4 Stars
                 </label>
-                <label>
-                    <input type="checkbox" name="rating" value="5">
-                    5 Stars
-                </label>
+           
             </div>
         </div>
     </div>
     <!-- Content -->
     <div class="bcontent">
         <button class="btoggle-btn" id="btoggleBtn">Filters</button>
-        <?php include"categoryProducts.php";?>
+        <?php include "categoryProducts.php"; ?>
     </div>
 </div>
-
-
+<!-- filter -->
+</section>
 <script>
     document.getElementById('btoggleBtn').addEventListener('click', function () {
         var sidebar = document.getElementById('bsidebar');

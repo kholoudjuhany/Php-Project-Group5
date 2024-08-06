@@ -36,9 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 passwordField.value = '';
             });
         } else {
-            echo ("Wrong Email or Password");
+            // No errors, submit the form
+            form.submit(); // This will submit the form to the server
         }
     });
+
+
+
+
+
+
+
 });
 
 

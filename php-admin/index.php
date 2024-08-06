@@ -15,65 +15,85 @@
 
 
   <!-- Container Page Start -->
-     <div class="container-fluid page-body-wrapper">
+  <div class="container-fluid page-body-wrapper">
     <!-- Aside Star -->
     <?php include './include/aside.php'; ?>
     <!-- Aside End -->
 
 
     <!-- Main Page Start -->
-       <div class="main-panel">
+    <div class="main-panel">
 
       <!-- Contant Start -->
-        <div class="content-wrapper">
+      <div class="content-wrapper">
 
         <!-- Page Header Star -->
         <?php include './include/pageHeader.php'; ?>
         <!-- Page Header End -->
 
 
-            <!-- Content Here ......  -->
-             <!-- static start  -->
-             <div class="row">
-               <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-danger card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Sales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">$ 15,0000</h2>
-                    <h6 class="card-text">Increased by 60%</h6>
-                  </div>
-                </div>
+        <!-- Content Here ......  -->
+        <!-- static start  -->
+        <?php
+        include 'connection/connect.php';
+        $stmt_users = $conn->prepare('SELECT COUNT(*) as count_user  FROM users;');
+        $stmt_users-> execute();
+        $usersboard = $stmt_users->fetch(PDO::FETCH_ASSOC);
+        $user_count = $usersboard['count_user'];
+
+        $stmt_category = $conn->prepare('SELECT COUNT(*) as category_count FROM categories');
+        $stmt_category-> execute();
+        $categoryboard = $stmt_category-> fetch(PDO::FETCH_ASSOC);
+        $category_count = $categoryboard ['category_count'];
+
+        $stmt_product = $conn->prepare("SELECT COUNT(*) product_count FROM `products`");
+        $stmt_product->execute();
+        $count = $stmt_product->fetch(PDO::FETCH_ASSOC);
+
+        ?>
+
+        <div class="row">
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+              <div class="card-body">
+                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">Total Users <i
+                    class="mdi mdi-chart-line mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5"><?php echo $user_count; ?> </h2>
+            
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-info card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">45,6334</h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
-                  </div>
-                </div>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+              <div class="card-body">
+                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">Total category <i
+                    class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5"><?php echo  $category_count; ?></h2>
+                
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Total products <i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">95,5741</h2>
-                    <h6 class="card-text">Increased by 5%</h6>
+                    <h2 class="mb-5"><?php echo  $count ['product_count']?></h2>
+                    
                   </div>
                 </div>
               </div>
-            </div>
-             <!-- static end  -->
-             
-
-
         </div>
+        <!-- static end  -->
+
+
+
+      </div>
       <!-- Contant End -->
 
 
@@ -83,10 +103,10 @@
 
 
       <!-- partial -->
-      </div>
+    </div>
     <!-- Main Page End -->
 
-     </div>
+  </div>
   <!-- Container Page End -->
 
 

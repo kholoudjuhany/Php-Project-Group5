@@ -29,10 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Validate password length (adjust as needed)
-        if (strlen($upassword) < 6) {
-            echo 'Password must be at least 6 characters long.';
-            exit();
-        }
+       
 
         try {
             // Prepare and execute the statement

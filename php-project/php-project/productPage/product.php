@@ -62,7 +62,7 @@ $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="acol-6">
                     <div class="abreadcrumb">
-                        <span><a href="#">Home</a></span>
+                        <span><a href="../landingPage/landingPage.php">Home</a></span>
                         <span><a href="#">Product</a></span>
                         <span class="aactive"><?php echo htmlspecialchars($product[0]['pro_name']); ?></span>
                     </div>

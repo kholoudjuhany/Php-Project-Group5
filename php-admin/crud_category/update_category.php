@@ -1,5 +1,7 @@
 <?php
-include("connection/connect.php");
+// Start output buffering
+// ob_start();
+// include("connection/connect.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["catId"])) {
@@ -7,16 +9,28 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $action = $_POST['action'];
 
         if ($action == "update") {
-            // Fetch the updated data
             $catName = $_POST['catName'];
             $catImage = $_FILES['catImage']['name'];
-
-            // Check if a new image is uploaded
+            $targetDir = "uploads/";
+            $targetFile = $targetDir . basename($catImage);
+            $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+            
             if ($catImage) {
-                // Handle image upload
-                move_uploaded_file($_FILES['catImage']['tmp_name'], "uploads/" . $catImage);
+                // Validate image file type and size
+                $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+                if (in_array($imageFileType, $allowedTypes) && $_FILES['catImage']['size'] <= 5000000) {
+                    if (move_uploaded_file($_FILES['catImage']['tmp_name'], $targetFile)) {
+                        // File uploaded successfully
+                    } else {
+                        echo "Error uploading the file.";
+                        exit();
+                    }
+                } else {
+                    echo "Invalid file type or size.";
+                    exit();
+                }
             } else {
-                // Keep the existing image if no new image is uploaded
+                // Retrieve the existing image if no new image is uploaded
                 $stmt = $conn->prepare("SELECT `cat_image` FROM `categories` WHERE `cat_id` = :catId");
                 $stmt->bindParam(':catId', $catId);
                 $stmt->execute();
@@ -25,30 +39,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
 
             try {
-                // Prepare the SQL statement to update the category
                 $stmt = $conn->prepare("UPDATE `categories` SET `cat_name` = :catName, `cat_image` = :catImage WHERE `cat_id` = :catId");
-                // Bind the parameters
                 $stmt->bindParam(':catName', $catName);
                 $stmt->bindParam(':catImage', $catImage);
                 $stmt->bindParam(':catId', $catId);
-                // Execute the statement
                 $stmt->execute();
-
-                // Redirect to the category page after updating
                 header("Location: category.php");
                 exit();
             } catch (PDOException $e) {
-                // Error message
                 echo "Error: " . $e->getMessage();
             }
         }
     }
 }
 
-// Fetch categories for display
 $stmt = $conn->prepare("SELECT `cat_id`, `cat_name`, `cat_image` FROM `categories`");
 $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// End output buffering and flush the output
+ob_end_flush();
 ?>
 <!-- Edit Category Modal -->
 <div class="modal fade" id="editFormCat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -64,25 +74,26 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="card-body">
                             <h4 class="card-title">Edit Category</h4>
                             <p class="card-description">Update category details</p>
-                            <form class="forms-sample" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"
+                            <form class="forms-sample" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post"
                                 enctype="multipart/form-data">
                                 <input type="hidden" name="catId" id="editCatId">
                                 <input type="hidden" name="action" value="update">
                                 <div class="form-group">
-                                    <label for="exampleInputName">Category Name</label>
+                                    <label for="editCatName">Category Name</label>
                                     <input type="text" class="form-control" name="catName" id="editCatName"
-                                        placeholder="Category Name" value="" required>
+                                        placeholder="Category Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="imageInput">Category Image</label>
-                                    <input type="file" name="catImage" class="file-upload-default" id="imageInput">
+                                    <input type="file" name="catImage" id="fileUploadDefault">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info" disabled
+                                        <input type="text" id="fileUploadInfo" class="fileUploadInfo form-control" disabled
                                             placeholder="Upload Image">
                                         <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                            <button id="fileUploadBrowse" class="fileUploadBrowse btn btn-gradient-primary" type="button">Upload</button>
                                         </span>
                                     </div>
+                                    <!-- <img id="imagePreview" src="" alt="Image Preview" style="max-width: 100px; margin-top: 10px;"> -->
                                 </div>
                                 <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
                             </form>
@@ -95,18 +106,36 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <script>
-document.querySelector('.file-upload-browse').addEventListener('click', function () {
-    document.querySelector('.file-upload-default').click();
-});
+    document.getElementById('fileUploadBrowse').addEventListener('click', function() {
+        document.getElementById('fileUploadDefault').click();
+    });
 
-document.querySelector('.file-upload-default').addEventListener('change', function () {
-    var fileName = this.value.split('\\').pop();
-    document.querySelector('.file-upload-info').value = fileName;
-});
+    document.getElementById('fileUploadDefault').addEventListener('change', function() {
+        var fileName = this.value.split('\\').pop();
+        document.getElementById('fileUploadInfo').value = fileName;
 
-function populateEditForm(catId, catName, catImage) {
-    document.getElementById('editCatId').value = catId;
-    document.getElementById('editCatName').value = catName;
-    document.querySelector('.file-upload-info').value = catImage;
-}
+        // Show image preview
+        var file = this.files[0];
+        var preview = document.getElementById('imagePreview');
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function populateEditForm(catId, catName, catImage) {
+        document.getElementById('editCatId').value = catId;
+        document.getElementById('editCatName').value = catName;
+
+        // Display existing image
+        var preview = document.getElementById('imagePreview');
+        if (catImage) {
+            preview.src = 'uploads/' + catImage;
+        } else {
+            preview.src = ''; // Or set a default placeholder image
+        }
+    }
 </script>

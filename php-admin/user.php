@@ -1,6 +1,5 @@
-
 <?php
- include ("connection/connect.php");
+include ("connection/connect.php");
 try {
   // Fetch categories for display
   $stmt = $conn->prepare("SELECT `user_id`, `user_fname`, `user_lname`,`user_email`,`user_mobile`,`user_permission`FROM `users`");
@@ -64,22 +63,29 @@ try {
 
         <!-- Content Here ......  -->
         <!-- static start  -->
+        <?php
+        include 'connection/connect.php';
+        $stmt_users = $conn->prepare('SELECT COUNT(*) as count_user  FROM users;');
+        $stmt_users->execute();
+        $usersboard = $stmt_users->fetch(PDO::FETCH_ASSOC);
+        $user_count = $usersboard['count_user'];
+
+        ?>
         <div class="row">
           <div class="col-md-12 stretch-card grid-margin">
             <div class="card bg-gradient-success card-img-holder text-white">
               <div class="card-body">
                 <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                <h4 class="font-weight-normal mb-3">Total Users <i class="mdi mdi-diamond mdi-24px float-right"></i>
                 </h4>
-                <h2 class="mb-5">95,5741</h2>
-                <h6 class="card-text">Increased by 5%</h6>
+                <h2 class="mb-5"><?php echo $user_count ?> </h2>
+
               </div>
             </div>
           </div>
-         
+
         </div>
         <!-- static end  -->
-
         <!-- Modal  add user start -->
         <!-- Button trigger modal -->
 
@@ -93,7 +99,7 @@ try {
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-              
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -124,7 +130,7 @@ try {
                         <div class="form-group">
                           <input type="text" class="form-control" name="mobile" placeholder="Phone Number" required>
                         </div>
-                       
+
 
                         <div class="form-group">
                           <input type="text" class="form-control" name="city" placeholder="City" required>
@@ -142,7 +148,7 @@ try {
                           </div>
 
                         </div>
-                        
+
 
                         <button type="submit" class="btn btn-gradient-primary me-2"> Add User </button>
                       </form>
@@ -154,7 +160,7 @@ try {
             </div>
           </div>
         </div>
-        
+
         <!-- Modal add user end -->
 
 
@@ -189,13 +195,12 @@ try {
                           <td><?php echo htmlspecialchars($user['user_permission']); ?></td>
                           <td class="text-left">
                             <!-- fix404 -->
-                            <form action="crud_user/update_user.php" method="post" style="display: inline-block;">
+                            <form action="update_user.php" method="post" style="display: inline-block;">
                               <input type="hidden" name="user_id"
                                 value="<?php echo htmlspecialchars($user['user_id']); ?>">
-                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
-                                  data-bs-target="#editForm">
-                                  <i class="mdi mdi-table-edit"></i>
-                                </button>
+                              <button type="submit" class="btn btn-outline-info">
+                                <i class="mdi mdi-table-edit"></i>
+                              </button>
                             </form>
                             <!-- fix404 -->
 
@@ -215,7 +220,7 @@ try {
       </div>
       <!-- Contant End -->
 
-      <?php include "crud_user/update_user.php"; ?>
+
 
       <!-- Footer Star -->
       <?php include './include/footer.php'; ?>

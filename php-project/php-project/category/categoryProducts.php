@@ -20,7 +20,6 @@ if (empty($products)) {
     $Allproducts = $conn->prepare("SELECT p.product_id, p.pro_name,  p.pro_price, p.cat_id, pi.pro_image
     FROM Products p
     JOIN Product_Images pi ON p.product_id = pi.product_id
-    WHERE p.cat_ID = 9
     GROUP BY p.product_id
     HAVING COUNT(pi.pro_image_id) = 1;
 ");

@@ -44,38 +44,25 @@ try {
                 <!-- Content Here ........-->
 
                 <!-- static start  -->
+                <?php
+                  $stmt_category = $conn->prepare('SELECT COUNT(*) as category_count FROM categories');
+                  $stmt_category-> execute();
+                  $categoryboard = $stmt_category-> fetch(PDO::FETCH_ASSOC);
+                  $category_count = $categoryboard ['category_count'];
+                 ?>
                 <div class="row">
-                    <div class="col-md-4 stretch-card grid-margin">
+                    <div class="col-md-12 stretch-card grid-margin">
                         <div class="card bg-gradient-info card-img-holder text-white">
                             <div class="card-body">
                                 <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i></h4>
-                                <h2 class="mb-5">45,6334</h2>
-                                <h6 class="card-text">Decreased by 10%</h6>
+                                <h4 class="font-weight-normal mb-3">Total category <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i></h4>
+                                <h2 class="mb-5"><?php echo  $category_count; ?> </h2>
+                              
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 stretch-card grid-margin">
-                        <div class="card bg-gradient-info card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i></h4>
-                                <h2 class="mb-5">45,6334</h2>
-                                <h6 class="card-text">Decreased by 10%</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 stretch-card grid-margin">
-                        <div class="card bg-gradient-info card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i></h4>
-                                <h2 class="mb-5">45,6334</h2>
-                                <h6 class="card-text">Decreased by 10%</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                </div> 
                 <!-- static end  -->
 
                 <!-- Modal add category start -->
@@ -100,13 +87,14 @@ try {
                                                     <input type="text" class="form-control" name="catName" placeholder="Category Name" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="file" name="catImage" class="file-upload-default" required>
+                                                    <input type="file" name="catImage" id="fileUploadDefault" class="file-upload-default" required>
                                                     <div class="input-group col-xs-12">
-                                                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                                        <input type="text" id="fileUploadInfo" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                                         <span class="input-group-append">
-                                                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                                                            <button id="fileUploadBrowse" class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                                                         </span>
                                                     </div>
+                                                   
                                                 </div>
                                                 <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
                                             </form>
@@ -169,43 +157,9 @@ try {
             </div>
             <!-- Content End -->
 
-            <!-- Edit Category Modal -->
-            <div class="modal fade" id="editFormCat" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 grid-margin stretch-card" id="form">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title fw-bold text-center">Edit Category</h4>
-                                        <form class="forms-sample" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-                                            <input type="hidden" name="catId" id="editCatId" value="">
-                                            <input type="hidden" name="action" value="update">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="catName" id="editCatName" placeholder="Category Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="file" name="catImage" class="file-upload-default" id="editCatImage">
-                                                <div class="input-group col-xs-12">
-                                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                                    <span class="input-group-append">
-                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Edit Category Modal End -->
+            <!-- update category include start -->
+            <?php include './crud_category/update_category.php'; ?>
+            <!-- update category include end -->
 
             <!-- Footer Start -->
             <?php include './include/footer.php'; ?>
@@ -220,25 +174,40 @@ try {
 
 <!-- Uploads Script to Open Start -->
 <script>
-    document.querySelectorAll('.file-upload-browse').forEach(function(button) {
-        button.addEventListener('click', function() {
-            button.closest('.input-group').querySelector('.file-upload-default').click();
-        });
+    document.getElementById('fileUploadBrowse').addEventListener('click', function() {
+        document.getElementById('fileUploadDefault').click();
     });
 
-    document.querySelectorAll('.file-upload-default').forEach(function(input) {
-        input.addEventListener('change', function() {
-            var fileName = this.value.split('\\').pop();
-            this.closest('.input-group').querySelector('.file-upload-info').value = fileName;
-        });
+    document.getElementById('fileUploadDefault').addEventListener('change', function() {
+        var fileName = this.value.split('\\').pop();
+        document.getElementById('fileUploadInfo').value = fileName;
+
+        // Show image preview
+        var file = this.files[0];
+        var preview = document.getElementById('imagePreview');
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
     });
 
     function populateEditForm(catId, catName, catImage) {
         document.getElementById('editCatId').value = catId;
         document.getElementById('editCatName').value = catName;
-        document.getElementById('editCatImage').closest('.input-group').querySelector('.file-upload-info').value = catImage;
+
+        // Display existing image
+        var preview = document.getElementById('imagePreview');
+        if (catImage) {
+            preview.src = 'uploads/' + catImage;
+        } else {
+            preview.src = ''; // Or set a default placeholder image
+        }
     }
 </script>
+
 <!-- Uploads Script to Open End -->
 
 <!-- Bottom Start -->

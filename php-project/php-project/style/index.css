@@ -106,14 +106,15 @@ h6 {
 } */
 
 .best_seller_section h1 {
+    color: #D93250;
     text-transform: uppercase;
-    margin-left: 120px;
+    margin-left: 105px;
     font-size: 40px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .best_seller_section h6 {
-    margin-left: 120px;
+    margin-left: 105px;
     font-size: 25px;
 }
 
@@ -124,8 +125,8 @@ h6 {
     justify-content: flex-start;
     gap: 40px;
     margin-bottom: 70px;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 95px;
+    padding-right: 95px;
 }
 
 .card {
@@ -199,10 +200,11 @@ h6 {
     position: absolute;
     bottom: 15px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-53%);
     transition: opacity 0.3s;
-    width: 75%;
+    width: 95%;
 }
+
 
 .card:hover .add-to-cart {
     display: block;
@@ -226,8 +228,9 @@ h6 {
 }
 
 .favorite_section h1 {
+    color: #D93250;
     margin-top: 70px;
-    margin-left: 150px;
+    margin-left: 120px;
     margin-bottom: 30px;
     text-transform: uppercase;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -235,7 +238,7 @@ h6 {
 
 .favorite_section h6 {
     font-size: 25px;
-    margin-left: 150px;
+    margin-left: 120px;
     margin-bottom: 30px;
 }
 
@@ -249,10 +252,9 @@ h6 {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 40px;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 112px;
+    padding-right: 112px;
     margin-bottom: 70px;
-
 }
 .favorite_section_cards button
 {
