@@ -17,6 +17,7 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo 'hi';
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
         $upassword = $_POST['password'];

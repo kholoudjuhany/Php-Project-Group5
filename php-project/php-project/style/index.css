@@ -25,11 +25,11 @@ body {
     background-color: var(--background-color);
 
 }
-button
+/* button
 {
     background-color: transparent !important; 
     border: none !important;
-}
+} */
 
 
 /* Carousel styles */
@@ -65,10 +65,13 @@ button
     max-width: 50%;
     margin-right: 20px;
 }
-
-.slide-item-content button {
-    background-color: var(--primary-color);
-    /* color: #ffffff; */
+.slide-item-content a
+{
+    text-decoration: none;
+}
+.slide-item-content  button {
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
     border: none;
 }
 

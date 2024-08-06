@@ -2,7 +2,7 @@
 
   <!-- logo start -->
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo.svg" alt="logo" /></a>
+    <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo2.png" alt="logo" /></a>
     <a class="navbar-brand brand-logo-mini" href="index.php"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
   </div>
   <!-- logo end -->
@@ -60,7 +60,7 @@
 
       <!-- exit Dashboard start  -->
       <li class="nav-item nav-logout d-none d-lg-block">
-        <a class="nav-link" href="home.php">
+        <a class="nav-link" href="../../php-project/php-project/landingPage/landingPage.php">
           <i class="mdi mdi-exit-to-app"></i>
           <b>Exit</b>
         </a>

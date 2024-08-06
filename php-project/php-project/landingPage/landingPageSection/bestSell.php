@@ -13,7 +13,7 @@ $stmt_best = $conn->prepare("SELECT p.product_id, p.pro_name, p.pro_price, pi.pr
             ORDER BY COUNT(fav_id) DESC
             LIMIT 1
         )
-        LIMIT 1  -- Ensure only one image is selected
+        -- LIMIT 1  -- Ensure only one image is selected
     ) pi ON p.product_id = pi.product_id
 ");
 

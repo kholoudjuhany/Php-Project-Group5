@@ -15,8 +15,10 @@
                     Welcome to your pet's favorite store! From nutritious meals to playful accessories, we’ve got
                     everything your furry friend needs.
                     </p>
-                    <a href="../category/category.php">
-                    <button class="btn btn-lg">get started</button>
+                    <a href="../category/category.php" >
+                    <button class="btn btn-lg" > 
+                      <p style="background-color: brown; color:white ; padding:10px;   border-radius: 6px;">  get started</p>
+                    </button>
                     </a>
                 </div>
                 <img src="../images/pet.png" alt="First slide">
@@ -30,7 +32,7 @@
                     keep your pet healthy and happy.
                     </p>
                     <a href="../category/category.php">
-                    <button class="btn btn-lg">get started</button>
+                    <button ><p style="background-color: brown; color:white ; padding:10px;   border-radius: 6px;">  get started</p></button>
                     </a>
                 </div>
                 <img src="../images/pngwing.com.png" alt="supplies image">
@@ -43,7 +45,7 @@
                     From cozy beds to fun toys, find all the essentials to pamper your pet with the best. Quality products with various prices.
                     </p>
                     <a href="../category/category.php">
-                    <button class="btn btn-lg">get started</button>
+                    <button >   <p style="background-color: brown; color:white ; padding:10px;   border-radius: 6px;">  get started</p></button>
                     </a>
                 </div>
                 <img src="../images/tools2.png" alt="Third slide" class="card-img-top imgSlide">
