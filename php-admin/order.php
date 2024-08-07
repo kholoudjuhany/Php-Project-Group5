@@ -51,8 +51,8 @@ $daily_amount = $stmt_daily_amount->fetch(PDO::FETCH_ASSOC);
         <!-- Page Header End -->
 
         <!-- Content Here ......  -->
-               <!-- static start  -->
-               <div class="row">
+        <!-- static start  -->
+        <div class="row">
           <div class="col-md-4 stretch-card grid-margin">
             <div class="card bg-gradient-danger card-img-holder text-white">
               <div class="card-body">
@@ -114,10 +114,13 @@ $daily_amount = $stmt_daily_amount->fetch(PDO::FETCH_ASSOC);
                           <tr>
                             <td><?php echo htmlspecialchars($orders['order_id']); ?></td>
                             <td><?php echo htmlspecialchars($orders['order_date']); ?></td>
-                            <td class="description-cell"><?php echo htmlspecialchars($orders['order_total_amount']); ?></td>
+                            <td class="description-cell"><?php echo htmlspecialchars($orders['order_total_amount']); ?>
+                            </td>
                             <td><?php echo htmlspecialchars($orders['user_id']); ?></td>
                             <td class="text-right">
-                              <button type="button" class="btn btn-outline-info view-details" data-bs-toggle="modal" data-bs-target="#orderDetailsModal" data-order-id="<?php echo htmlspecialchars($orders['order_id']); ?>">
+                              <button type="button" class="btn btn-outline-info view-details" data-bs-toggle="modal"
+                                data-bs-target="#orderDetailsModal"
+                                data-order-id="<?php echo htmlspecialchars($orders['order_id']); ?>">
                                 <i class="mdi mdi-table-edit"></i>
                               </button>
                             </td>
@@ -134,7 +137,8 @@ $daily_amount = $stmt_daily_amount->fetch(PDO::FETCH_ASSOC);
         <!-- table Orders end -->
 
         <!-- Modal Start -->
-        <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel"
+          aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -167,45 +171,45 @@ $daily_amount = $stmt_daily_amount->fetch(PDO::FETCH_ASSOC);
 
 <!-- AJAX Script -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.view-details').forEach(function(button) {
-    button.addEventListener('click', function() {
-      var orderId = this.getAttribute('data-order-id');
-      var modalBody = document.querySelector('#orderDetailsModal .modal-body');
-      modalBody.innerHTML = ''; // Clear previous content
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.view-details').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var orderId = this.getAttribute('data-order-id');
+        var modalBody = document.querySelector('#orderDetailsModal .modal-body');
+        modalBody.innerHTML = ''; // Clear previous content
 
-      fetch('order_details.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: 'orderyid=' + orderId
-      })
-      .then(response => response.text())
-      .then(data => {
-        modalBody.innerHTML = data;
+        fetch('order_details.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: 'orderyid=' + orderId
+        })
+          .then(response => response.text())
+          .then(data => {
+            modalBody.innerHTML = data;
 
-        // Add delete functionality
-        modalBody.querySelectorAll('form').forEach(function(form) {
-          form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            fetch('order_details.php', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              body: new URLSearchParams(new FormData(form))
-            })
-            .then(response => response.text())
-            .then(data => {
-              modalBody.innerHTML = data;
-            })
-            .catch(error => console.error('Error:', error));
-          });
-        });
-      })
-      .catch(error => console.error('Error:', error));
+            // Add delete functionality
+            modalBody.querySelectorAll('form').forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                fetch('order_details.php', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                  body: new URLSearchParams(new FormData(form))
+                })
+                  .then(response => response.text())
+                  .then(data => {
+                    modalBody.innerHTML = data;
+                  })
+                  .catch(error => console.error('Error:', error));
+              });
+            });
+          })
+          .catch(error => console.error('Error:', error));
+      });
     });
   });
-});
 </script>

@@ -3,18 +3,27 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+:root {
+    --background-color: #f7f5f2;
+    --text-color: #434343;
+    --primary-color: #D93250;
+    --secondary-color: #A62648;
+    --border-color: #ddd;
 }
 
 
-.container {
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    height: 100%;
+    margin: 0;
+}
+
+.container0 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
@@ -25,26 +34,28 @@ body {
 }
 
 
-.form-title {
+
+
+.form-title0 {
     margin-bottom: 1.5rem;
     color: #333;
     font-size: 1.5rem; 
 }
 
 
-.account-info {
+.account-info0 {
     margin-bottom: 1rem;
     font-size: 0.875rem; 
     color: #666;
 }
 
 
-.input-group {
+.input-group0 {
     margin-bottom: 1rem;
     position: relative;
 }
 
-.input-group input {
+.input-group0 input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -52,7 +63,7 @@ body {
     box-sizing: border-box;
 }
 
-.input-group label {
+.input-group0 label {
     position: absolute;
     left: 10px;
     top: 50%;
@@ -61,14 +72,14 @@ body {
 }
 
 
-.error-message {
+.error-message0 {
     color: red;
     font-size: 0.875rem; 
     display: none; 
 }
 
 
-.btn {
+.btn0 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,31 +95,24 @@ body {
     transition: background-color 0.3s ease; 
 }
 
-.btn:hover {
+.btn0:hover {
     background-color: #A62648; 
 }
 
 
-.recover, .links {
+.recover0, .links0 {
     margin-top: 1rem;
 }
 
-.recover a, .links a {
+.recover0 a, .links0 a {
     color: #686c6f; 
     text-decoration: none;
 }
 
-.recover a:hover, .links a:hover {
+.recover0 a:hover, .links0 a:hover {
     text-decoration: underline;
 }
 
-:root {
-    --background-color: #f7f5f2;
-    --text-color: #434343;
-    --primary-color: #D93250;
-    --secondary-color: #A62648;
-    --border-color: #ddd;
-}
 
 
 

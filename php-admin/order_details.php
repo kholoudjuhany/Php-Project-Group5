@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <td class="text-right">
                             <form class="delete-form" data-order-id="<?php echo htmlspecialchars($the_details['order_id']); ?>" action="order_details.php" method="post">
                                 <input type="hidden" name="orderDId" value="<?php echo htmlspecialchars($the_details['order_details_id']); ?>">
-                                <button type="submit" class="btn btn-outline-info">
-                                    <i class="mdi mdi-table-edit"></i>
+                                <button type="submit" class="btn btn-outline-danger">
+                                    <i class="mdi mdi-delete-forever"></i>
                                 </button>
                             </form>
                         </td>

@@ -18,7 +18,7 @@
                 <span class="span-category">Explore our most popular blooms</span>
             </div>
             <div class="ALS#EE">
-                <a href="#" class="view-all-link">View All</a>
+                <a href="../category/category.php" class="view-all-link">View All</a>
             </div>
         </div>
         <div class="categories-container">

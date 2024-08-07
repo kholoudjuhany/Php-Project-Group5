@@ -9,25 +9,94 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../style/navbarStyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
-    <div class="container" id="login">
-        <h1 class="form-title">Login</h1>
-        <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-            <div id="loginMessage" class="messageDiv" style="display:none;"></div>
-            <div class="input-group">
-                <input type="email" name="email" id="loginEmail" placeholder="Email" >
-                <span class="error-message" id="loginEmailError">Please use a valid email</span>
-            </div>
-            <div class="input-group">
-                <input type="password" name="password" id="loginPassword" placeholder="Password" >
-                <span class="error-message" id="loginPasswordError">Please fill this field as it is required</span>
-            </div>
-            <button type="submit" class="btn"><b>Login</b></button>
-        </form>
-        <p class="links">Don't have an account? <a href="./SignForm.php" id="createAccountButton">Create Account</a></p>
+
+<nav class="navbar1">
+  <div class="container1">
+
+    
+
+    <div class="navbar1-menu" id="open-navbar1">
+  
+      <button class="navbar1-toggler" data-toggle="open-navbar1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <a href="../landingPage/landingPage.php">
+        <img src="../images/logo.png" alt="logo" width="50%">
+      </a>
+    
+      <ul class="navbar1-nav">
+        <li ><a href="../landingPage/landingPage.php">Home</a></li>
+        <li class="navbar1-dropdown">
+          <a href="../category/category.php" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+            Categories 
+          </a>
+          
+        </li>
+        <li class="navbar1-dropdown">
+          <a href="../landingPage/landingPage.php#services_n" class="dropdown-toggler" data-dropdown="blog">
+          Services 
+          </a>
+          
+
+
+        </li>
+        <!-- fix404 add link and name -->
+        <li><a href="../landingPage/landingPage.php#faq_n">FAQ</a></li> 
+        <li><a href="../landingPage/landingPage.php#aboutus_n">About</a></li> 
+        <li><a href="../landingPage/landingPage.php#footerf">Contact</a></li>
+        <li><a href="../loginPage/LoginForm.php">Login/Signup</a></li>
+       <li> 
+        <a href="../cart/cart2.php" class="toggle-cart-btn"  >
+       
+        
+          <i class="fa-solid fa-cart-shopping fa-lg "></i>
+     
+      </a>
+      </li>
+        <!-- fix404 add link and name -->
+      </ul>
     </div>
+  </div>
+</nav>
+
+
+
+
+    <div class="container0" id="login">
+        <h1 class="form-title0">Login</h1>
+        <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+            <div id="loginMessage" class="messageDiv0" style="display:none;"></div>
+            <div class="input-group0">
+                <input type="email" name="email" id="loginEmail" placeholder="Email" >
+                <span class="error-message0" id="loginEmailError">Please use a valid email</span>
+            </div>
+            <div class="input-group0">
+                <input type="password" name="password" id="loginPassword" placeholder="Password" >
+                <span class="error-message0" id="loginPasswordError">Please fill this field as it is required</span>
+            </div>
+            <button type="submit" class="btn0"><b>Login</b></button>
+        </form>
+        <p class="links0">Don't have an account? <a href="./SignForm.php" id="createAccountButton">Create Account</a></p>
+    </div>
+
+
+
+
+
+
+
+
+
+    
     <script src="login.js?v=<?php echo time();?>"></script>
     <script src="jquery-3.3.1.min.js"></script>
 </body>
