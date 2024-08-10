@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../style/cart.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../style/category.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../style/index.css?v=<?php echo time(); ?>">
+    <link rel="icon" tybe="icon" href="../images/Dog-Pet-PNG-Cutout.png">
 
 
     <!-- bootstrap -->

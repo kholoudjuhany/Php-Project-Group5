@@ -4,17 +4,26 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background-color: #fffaf3;
+    --text-color: #434343;
+    --primary-color: #D93250;
+    --secondary-color: #A62648;
+    --border-color: #ddd;
+}
+
  body {
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    height: 100%;
-    margin: 0;
+    height: 125vh;
+
+    /* background-color: var(--background-color); */
 }
 
 
- .container {
-    position: absolute;
-    top: 50%;
+ .container5 {
+   
+ position: absolute;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
@@ -24,36 +33,36 @@
     text-align: center;
 }
 
-
-.form-title {
+.form-title5 {
     margin-bottom: 5px;
     color: #333;
     font-size: 1.5rem;
 }
 
 
-.input-group {
+.input-group5 {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem; 
 }
 
 
-.input-group-horizontal {
+.input-group-horizontal5 {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
 
-.input-group-item {
+.input-group-item5 {
     flex: 1;
     margin-bottom: 1rem; 
     position: relative;
+
 }
 
 
-.input-group-item input {
+.input-group-item5 input {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -62,7 +71,7 @@
 }
 
 
-.input-group-item label {
+.input-group-item5 label {
     display: block;
     margin-bottom: 2px; 
     color: #4d0a0a; 
@@ -71,14 +80,14 @@
 }
 
 
-.error-message {
+.error-message5 {
     color: red;
     font-size: 0.875rem; 
     display: none; 
 }
 
 
-.btn {
+.btn5 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,40 +103,38 @@
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.btn5:hover {
     background-color: #A62648;
 }
 
 
-.recover, .links {
+.recover5, .links5 {
     margin-top: 1rem;
 }
 
-.recover a, .links a {
+.recover5 a, .links5 a {
     color: #686c6f;
     text-decoration: none;
 }
 
-.recover a:hover, .links a:hover {
+.recover5 a:hover, .links5 a:hover {
     text-decoration: underline;
 }
 
 
-.address-group {
+.address-group5 {
     display: flex;
     gap: 10px;
 }
 
-:root {
-    --background-color: #f7f5f2;
-    --text-color: #434343;
-    --primary-color: #D93250;
-    --secondary-color: #A62648;
-    --border-color: #ddd;
+
+#footerf
+{
+    position: absolute;
+    top:116%; 
+    width: 100%;
+   
 }
-
-
-
 
 
 

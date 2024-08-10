@@ -9,9 +9,9 @@
 
   <!-- Section: Links  -->
   <section class="">
-    <div class="container text-start text-md-start mt-5">
+    <div class="container text-start text-md-start mt-4">
       <!-- Grid row -->
-      <div class="row mt-3">
+      <div class="row mt-2">
 
        <!-- Grid column -->
        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -84,7 +84,7 @@
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2024 Copyright: for Pawzy G5
   </div>
   <!-- Copyright -->

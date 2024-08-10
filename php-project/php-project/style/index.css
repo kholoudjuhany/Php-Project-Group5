@@ -70,7 +70,7 @@ body {
     text-decoration: none;
 }
 .slide-item-content  button {
-    background-color: var(--secondary-color);
+    background-color: transparent;
     color: var(--secondary-color);
     border: none;
 }

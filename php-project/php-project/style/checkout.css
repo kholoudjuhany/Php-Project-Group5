@@ -1,104 +1,83 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 40px;
+    width: 100%;
+    height: 100%;
 }
 
-
-.checkout-container {
+/* Centering container */
+.checkout-container8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 600px;
-    text-align: left;
+    margin: 0 auto; /*Center the container*/
+    margin-top: 35px;
+    margin-bottom: 35px;
+
 }
 
-
-.checkout-title {
+/* Title styling */
+.checkout-title8 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
     color: #333;
 }
 
-.order-summary {
-    margin-bottom: 1.5rem;
+/* Section styling */
+.order-summary8, .order-details8, .shipping-info8, .shipping-method8 {
+    width: 100%;
 }
 
-.order-summary h2 {
+/* Sub-section titles */
+.order-summary8 h2, .order-details8 h2, .shipping-info8 h2, .shipping-method8 h2 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     color: #555;
 }
 
-.order-item {
+/* Order items and details */
+.order-item8 {
     padding: 1rem;
     background: #f8f8f8;
     border-radius: 5px;
 }
 
-
-.order-details {
-    margin-bottom: 1.5rem;
-}
-
-.order-details h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-.summary-item, .order-total {
+.summary-item8, .order-total8 {
     display: flex;
     justify-content: space-between;
     padding: 0.75rem 0;
     border-bottom: 1px solid #ddd;
 }
 
-.order-total {
+.order-total8 {
     font-weight: bold;
 }
 
-
-.shipping-info {
-    margin-bottom: 1.5rem;
-}
-
-.shipping-info h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-.shipping-info p {
+/* Shipping info */
+.shipping-info8 p {
     margin-bottom: 0.5rem;
 }
 
-
-.shipping-method h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-.shipping-method p {
+/* Shipping method */
+.shipping-method8 p {
     margin-bottom: 1rem;
 }
 
-.btn {
+/* Button styling */
+.btn8 {
     background-color: #5c6773;
     color: #fff;
     border: none;
@@ -113,7 +92,6 @@ body {
     text-align: center; 
 }
 
-.btn:hover {
+.btn8:hover {
     background-color: #3c080e;
 }
-

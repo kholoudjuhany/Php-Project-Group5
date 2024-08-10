@@ -84,8 +84,7 @@
             <div class="servicee">
                 <i class="fas fa-dog"></i>
                 <h3>Pet Training</h3>
-                <p>Some stores offer training services that include obedience training, potty training, and behavior
-                    correction.</p>
+                <p>Some stores offer training services that include obedience training.</p>
             </div>
             <div class="servicee">
                 <i class="fas fa-cat"></i>

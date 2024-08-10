@@ -4,11 +4,10 @@
   padding: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  font-family: "Cairo", sans-serif;
 }
 
 :root {
-  --background-color: #f6eee3;
+  --background-color: #fff9f1;
   --text-color: #434343;
   --primary-color: #D93250;
   --secondary-color: #A62648;
@@ -21,22 +20,24 @@ a {
 }
 
 .container1 {
+  font-family: "Cairo", sans-serif;
   font-size: 0.925rem;
-  width: 1170px;
+  /* width: 1170px; */
+  width: 100%;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-left: 70px;
+  /* margin-right: 120px; */
+  /* padding-left: 15px; */
+  /* padding-right: 15px; */
 }
 
-.navbar1,
+/* .navbar1, */
 .navbar1 > .container1 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 @media (max-width: 768px) {
